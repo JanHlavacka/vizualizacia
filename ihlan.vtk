@@ -1,0 +1,21 @@
+# vtk DataFile Version 2.0
+ihlan s 3 bodovou podstavou
+ASCII
+DATASET POLYDATA
+POINTS 4 float
+4 0 0
+-2 3.4641 0
+-2 -3.4641 0
+0 0 3
+LINES 6 12
+2 0 1
+2 0 3
+2 1 2
+2 1 3
+2 2 0
+2 2 3
+POLYGONS 4 12
+3 0 1 2 
+3 0 1 3
+3 1 2 3
+3 2 0 3
