@@ -31,7 +31,7 @@ int main()
     }
 
     ofstream outfile;
-    outfile.open("ihlan.vtk");
+    outfile.open("ihlan_5_tyzden.vtk");
 
     outfile << "# vtk DataFile Version 2.0" << endl;
     outfile << "ihlan s " << n << " bodovou podstavou" << endl;
@@ -45,7 +45,9 @@ int main()
     }
     outfile << "0" << " " << "0" << " " << height << endl;
 
-    outfile << "LINES " << n * 2 << " " << n*2*3 << endl;
+
+    //zakomentovavame kvoli farbeniu. Moze to ratat ako plochy na farbenie
+    /*outfile << "LINES " << n * 2 << " " << n*2*3 << endl;
     for (int i = 0; i < n; i++)
     {
         if (i == n - 1) {
@@ -55,7 +57,7 @@ int main()
             outfile << "2" << " " << i << " " << i + 1 << endl;
         }
         outfile << "2" << " " << i << " " << n << endl;
-    }
+    }*/
     outfile << "POLYGONS " << n + 1 << " " << n * 2 * 2 << endl;
     outfile << n << " ";
     for (int i = 0; i < n; i++)
@@ -73,6 +75,18 @@ int main()
         }
         
     }
+
+    //5te cvicenie, skalarne hodnor=ty na bunkach generovanych pomocou LOOKUP_TABLE
+
+    outfile << "CELL_DATA " << n + 1 << endl;
+    outfile << "SCALARS cell_scalars int 1" << endl;
+    outfile << "LOOKUP_TABLE default" << endl;
+    for (int i = 0; i < n+1; i++)
+    {
+        outfile << i << endl;
+    }
+
+
 
     outfile.close();
     delete[]points;
