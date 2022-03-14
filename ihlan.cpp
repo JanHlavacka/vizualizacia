@@ -18,7 +18,7 @@ using namespace std;
 int main()
 {
     int height = 3;
-    int n = 3;
+    int n = 12;
     int r = 4;
     
     POINTS *points = new POINTS[n];
@@ -45,7 +45,7 @@ int main()
     }
     outfile << "0" << " " << "0" << " " << height << endl;
 
-    outfile << "LINES " << n * 2 << " " << n*2*2 << endl;
+    outfile << "LINES " << n * 2 << " " << n*2*3 << endl;
     for (int i = 0; i < n; i++)
     {
         if (i == n - 1) {
