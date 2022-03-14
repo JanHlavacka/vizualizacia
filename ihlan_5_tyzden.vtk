@@ -1,0 +1,48 @@
+# vtk DataFile Version 2.0
+ihlan s 12 bodovou podstavou
+ASCII
+DATASET POLYDATA
+POINTS 13 float
+4 0 0
+3.4641 2 0
+2 3.4641 0
+2.44929e-16 4 0
+-2 3.4641 0
+-3.4641 2 0
+-4 4.89859e-16 0
+-3.4641 -2 0
+-2 -3.4641 0
+-7.34788e-16 -4 0
+2 -3.4641 0
+3.4641 -2 0
+0 0 3
+POLYGONS 13 48
+12 0 1 2 3 4 5 6 7 8 9 10 11 
+3 0 1 12
+3 1 2 12
+3 2 3 12
+3 3 4 12
+3 4 5 12
+3 5 6 12
+3 6 7 12
+3 7 8 12
+3 8 9 12
+3 9 10 12
+3 10 11 12
+3 11 0 12
+CELL_DATA 13
+SCALARS cell_scalars int 1
+LOOKUP_TABLE default
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
