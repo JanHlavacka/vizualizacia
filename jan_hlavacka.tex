@@ -1,0 +1,105 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[slovak]{babel}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\author{Jan Hlavacka}
+\title{Zadanie v \LaTeX u}
+
+\begin{document}
+
+\maketitle
+\newpage
+\begin{abstract}
+    Zadanie z predmetu Vizualizácia. Prvý krok pozostáva z vygenerovania
+    súboru .vtk, ktorý prezentuje geometrický objekt torus. V druhom kroku
+    otvoríme súbor v Paraview a vyskúšame rôzne zobrazenia a filtre. Na zátver
+    to spracujeme v Latex.
+\end{abstract}
+\newpage
+\tableofcontents
+\newpage
+\section{Vygenerovanie torusu}
+Program musí na začiatok vygenerovať "hlavičku", podľa ktorej ParaView rozpozná, že ide o súbor .vtk. Hlavička musí obsahovať následné informácie.
+\begin{enumerate}
+    \item vtk DataFile Version 2.0 - identifikácia verzie VTK
+    \item nadpis
+    \item dátový typ súboru - ASCII, alebo BINARY
+    \item dátová štruktúra - definuje geometriu a topológiu
+    \item vlastnosti dát
+\end{enumerate}
+Ďalší krok je vygenerovať body Torusu. Zadáme si počet horizontálnych a vertikálnych delení.
+Body torusu získame z parametrických rovníc:
+
+\begin{center}
+    \begin{eqnarray*}
+        x(\theta,\varphi) &=& (R + r cos\theta)cos\varphi \\
+        y(\theta,\varphi) &=& (R + r cos\theta)sin\varphi \\
+        z(\theta,\varphi) &=& r sin\theta \\
+    \end{eqnarray*}
+\end{center}
+
+Nakoniec zapíšeme jednotlivé polygóny. V našom prípade trojuholníky, ktoré sú navzájom opačne orientované.
+\newpage
+\section{obrazové výstupy}
+\subsection[]{Zobrazenie Torusu}
+\begin{figure}[H]
+    \includegraphics[width=0.6\textwidth]{points_no_gaussian.png}
+    \includegraphics[width=0.6\textwidth]{points.png}
+    \caption{Torus, zobrazený ako body. Napravo Gaussian}
+\end{figure}
+\begin{figure}[H]
+    \includegraphics[width=0.6\textwidth]{wireframe.png}
+    \includegraphics[width=0.6\textwidth]{wireframe_6_4.png}
+    \caption{Torus, zobrazený ako wireframe}
+\end{figure}
+\begin{figure}[H]
+    \includegraphics[width=0.6\textwidth]{surface.png}
+    \includegraphics[width=0.6\textwidth]{plochy_6_4.png}
+    \caption{Torus, zobrazený ako wireframe}
+\end{figure}
+\begin{figure}[H]
+    \includegraphics[width=0.6\textwidth]{wireframe.png}
+    \includegraphics[width=0.6\textwidth]{wireframe_6_4.png}
+    \caption{Torus, zobrazený ako plochy}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{surface_with_edge.png}
+    \caption{Torus, zobrazený ako plocha s drôtenou reprezentáciou}
+\end{figure}
+\subsection[]{Aplikácia filtrov}
+\begin{figure}[H]
+    \includegraphics[width=0.6\textwidth]{clip_vertical_2.png}
+    \includegraphics[width=0.6\textwidth]{clip_vertical_3.png}
+    \caption{Vertikálny rez objektom}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{clip_horizont.png}
+    \caption{Horizontálny rez objektom}
+\end{figure}
+\begin{figure}[H]
+    \includegraphics[width=0.6\textwidth]{vysek.png}
+    \includegraphics[width=0.6\textwidth]{vysek2.png}
+    \caption{Kombinácia rezov - výseky}
+\end{figure}
+
+\newpage
+\section{zdroje}
+\begin{thebibliography}{3}
+    \bibitem{latex}
+    Akila Maithripala , \textit{Latex}
+    \url{https://dev.to/ucscmozilla/how-to-create-and-compile-latex-documents-on-visual-studio-code-3jbk?fbclid=IwAR1jawbAVrN3GXvUvce7K9ARr7XMlHDfVLYHXPyRPkiUjmXCtYb-e5nKLpE}
+    \bibitem{torus}
+    Autor neznamy , \textit{Wikipedia}.
+    \url{https://en.wikipedia.org/wiki/Torus}
+    \bibitem{Paraview}
+    Autor neznamy , \textit{tutorials}.
+    \url{https://docs.paraview.org/en/latest/Tutorials/SelfDirectedTutorial/basicUsage.html#filters}
+
+\end{thebibliography}
+\end{document}
